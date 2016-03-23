@@ -9,14 +9,17 @@ class Labda {
     fill(szin);
     ellipse(x, y, 2*sugar, 2*sugar);
   }
-  void fel() {
+  void fel(float f) {
     y=y-1;
   }
-  void le() {
+  void le(float f) {
     y=y+2;
   }
-  void jobbra() {
+  void jobbra(float f) {
     x=x+2;
+  }
+  void novekedjen(float f) {
+    sugar=sugar+f;
   }
   boolean bent_van() {
     if (x>0+sugar && x<500-sugar && y>0+sugar && y<500-sugar) {
@@ -54,13 +57,16 @@ void draw() {
   zold_labda.rajzold_ki();
   pink_labda.rajzold_ki();
 
+  pink_labda.novekedjen(1);
+  sarga_labda.novekedjen(2);
+  zold_labda.novekedjen(0.5);
   if (pink_labda.bent_van()) {
-    pink_labda.fel();
+    pink_labda.fel(3);
   }
   if (zold_labda.bent_van()) {
-    zold_labda.le();
+    zold_labda.le(2);
   }
   if (sarga_labda.bent_van()) {
-    sarga_labda.jobbra();
+    sarga_labda.jobbra(0.5);
   }
 }
