@@ -16,7 +16,14 @@ class Labda {
     y=y+2;
   }
   void jobbra() {
-  x=x+2;
+    x=x+2;
+  }
+  boolean bent_van() {
+    if (x>0+sugar && x<500-sugar && y>0+sugar && y<500-sugar) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
 Labda sarga_labda=new Labda();
@@ -31,8 +38,8 @@ void setup() {
   sarga_labda.sugar=80;
   sarga_labda.szin=color(#FFEB08);
 
-  zold_labda.x=100;
-  zold_labda.y=100;
+  zold_labda.x=150;
+  zold_labda.y=150;
   zold_labda.sugar=120;
   zold_labda.szin=color(#5CBC26);
 
@@ -47,14 +54,13 @@ void draw() {
   zold_labda.rajzold_ki();
   pink_labda.rajzold_ki();
 
-if(pink_labda.y>0){
-  pink_labda.fel();
-}
-if(zold_labda.y<500){
-  zold_labda.le();
-}
-if(sarga_labda.x<500){
-  sarga_labda.jobbra();
-}
-  
+  if (pink_labda.bent_van()) {
+    pink_labda.fel();
+  }
+  if (zold_labda.bent_van()) {
+    zold_labda.le();
+  }
+  if (sarga_labda.bent_van()) {
+    sarga_labda.jobbra();
+  }
 }
